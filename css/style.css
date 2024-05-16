@@ -1,0 +1,304 @@
+@charset "UTF-8";
+/* Definimos las Custom properties */
+:root {
+  /* Colores */
+  --negro: #393939;
+  --main-color: #E6AE48;
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before, *::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* (Opcional) */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* (Opcional) Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+  /* (Opcional) */
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  /* (Opcional) */
+  font-smooth: always;
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  font-family: "Raleway";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 
+html{
+    scroll-snap-type: y mandatory;
+}
+*/
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: #ffffff;
+  padding: 2.344rem 4.0625rem;
+  z-index: 2;
+}
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__img {
+  width: 90%;
+}
+
+.navigation__nav {
+  display: flex;
+  justify-content: flex-end;
+}
+.navigation__item {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.navigation__link {
+  color: #000000;
+  padding: 0 1.5rem;
+  transition: color 0.25s !important;
+}
+.navigation__link--logo {
+  padding: 0;
+}
+.navigation__link:hover {
+  color: var(--main-color);
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+}
+.viewport__product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+
+.product {
+  width: 100%;
+  height: 100vh;
+  min-height: 6.25rem;
+}
+.product__wrapper {
+  width: 100%;
+  max-width: 1130px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 2.5rem;
+}
+.product__button {
+  color: var(--main-color);
+  border: solid 0.125rem var(--main-color);
+  padding: 1rem 2rem;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: all 0.25s !important;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.125rem;
+}
+.product__button:hover {
+  background: var(--main-color);
+  color: #ffffff;
+}
+.product__button--reversed {
+  color: #ffffff;
+  border: solid 0.125rem #ffffff;
+}
+.product__button--reversed:hover {
+  background: #ffffff;
+  color: var(--main-color);
+}
+.product__column {
+  width: 50%;
+  display: flex;
+}
+.product__column--right {
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.product__title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.3125rem;
+}
+.product__text {
+  line-height: 2em;
+  font-weight: 300;
+}
+.product__image {
+  max-width: 425px;
+}
+.product--reversed {
+  background: var(--main-color);
+  color: #ffffff;
+}
+.product--reversed .product__wrapper {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 767px) {
+  .header__navigation {
+    display: none;
+  }
+  .header__container {
+    justify-content: center;
+  }
+  .product {
+    height: 100%;
+  }
+  .product__wrapper {
+    flex-direction: column;
+    padding: 6.25rem 2.5rem;
+  }
+  .product__column {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .product__text {
+    font-size: 0.9em;
+  }
+  .product--reversed .product__wrapper {
+    flex-direction: column-reverse;
+  }
+}/*# sourceMappingURL=style.css.map */
